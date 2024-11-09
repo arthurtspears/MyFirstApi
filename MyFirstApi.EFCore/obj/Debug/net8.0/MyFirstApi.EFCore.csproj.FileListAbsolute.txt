@@ -1,0 +1,14 @@
+C:\Repos\CST324\MyFirstApi\MyFirstApi.EFCore\bin\Debug\net8.0\MyFirstApi.EFCore.deps.json
+C:\Repos\CST324\MyFirstApi\MyFirstApi.EFCore\bin\Debug\net8.0\MyFirstApi.EFCore.runtimeconfig.json
+C:\Repos\CST324\MyFirstApi\MyFirstApi.EFCore\bin\Debug\net8.0\MyFirstApi.EFCore.dll
+C:\Repos\CST324\MyFirstApi\MyFirstApi.EFCore\bin\Debug\net8.0\MyFirstApi.EFCore.pdb
+C:\Repos\CST324\MyFirstApi\MyFirstApi.EFCore\obj\Debug\net8.0\MyFirstApi.EFCore.csproj.AssemblyReference.cache
+C:\Repos\CST324\MyFirstApi\MyFirstApi.EFCore\obj\Debug\net8.0\MyFirstApi.EFCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repos\CST324\MyFirstApi\MyFirstApi.EFCore\obj\Debug\net8.0\MyFirstApi.EFCore.AssemblyInfoInputs.cache
+C:\Repos\CST324\MyFirstApi\MyFirstApi.EFCore\obj\Debug\net8.0\MyFirstApi.EFCore.AssemblyInfo.cs
+C:\Repos\CST324\MyFirstApi\MyFirstApi.EFCore\obj\Debug\net8.0\MyFirstApi.EFCore.csproj.CoreCompileInputs.cache
+C:\Repos\CST324\MyFirstApi\MyFirstApi.EFCore\obj\Debug\net8.0\MyFirstApi.EFCore.dll
+C:\Repos\CST324\MyFirstApi\MyFirstApi.EFCore\obj\Debug\net8.0\refint\MyFirstApi.EFCore.dll
+C:\Repos\CST324\MyFirstApi\MyFirstApi.EFCore\obj\Debug\net8.0\MyFirstApi.EFCore.pdb
+C:\Repos\CST324\MyFirstApi\MyFirstApi.EFCore\obj\Debug\net8.0\MyFirstApi.EFCore.genruntimeconfig.cache
+C:\Repos\CST324\MyFirstApi\MyFirstApi.EFCore\obj\Debug\net8.0\ref\MyFirstApi.EFCore.dll
