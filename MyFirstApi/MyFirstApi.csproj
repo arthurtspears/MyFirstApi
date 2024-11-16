@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MongoDbConnection\MongoDbConnection.csproj" />
     <ProjectReference Include="..\MyFirstApi.EFCore\MyFirstApi.EFCore.csproj" />
   </ItemGroup>
 

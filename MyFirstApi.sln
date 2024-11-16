@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstApi", "MyFirstApi\MyFirstApi.csproj", "{21170523-D71B-4E8F-9DFC-63C2CFE8E90E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFirstApi", "MyFirstApi\MyFirstApi.csproj", "{21170523-D71B-4E8F-9DFC-63C2CFE8E90E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstApi.EFCore", "MyFirstApi.EFCore\MyFirstApi.EFCore.csproj", "{E89C8159-DF31-49A4-B3F9-4CB36C3C1E78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFirstApi.EFCore", "MyFirstApi.EFCore\MyFirstApi.EFCore.csproj", "{E89C8159-DF31-49A4-B3F9-4CB36C3C1E78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstApi.Common", "MyFirstApi.Common\MyFirstApi.Common.csproj", "{1A4C6F48-C7A4-4263-8025-03EBF182B768}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDbConnection", "MongoDbConnection\MongoDbConnection.csproj", "{90CC8D72-3F16-4D54-B161-C0482E10B502}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{E89C8159-DF31-49A4-B3F9-4CB36C3C1E78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E89C8159-DF31-49A4-B3F9-4CB36C3C1E78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E89C8159-DF31-49A4-B3F9-4CB36C3C1E78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A4C6F48-C7A4-4263-8025-03EBF182B768}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A4C6F48-C7A4-4263-8025-03EBF182B768}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A4C6F48-C7A4-4263-8025-03EBF182B768}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A4C6F48-C7A4-4263-8025-03EBF182B768}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90CC8D72-3F16-4D54-B161-C0482E10B502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90CC8D72-3F16-4D54-B161-C0482E10B502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90CC8D72-3F16-4D54-B161-C0482E10B502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90CC8D72-3F16-4D54-B161-C0482E10B502}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

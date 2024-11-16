@@ -1,8 +1,11 @@
-﻿namespace MyFirstApi.EFCore.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using MyFirstApi.EFCore.Abstract;
+
+namespace MyFirstApi.EFCore.Entities
 {
-    public class Category
+    public class Category : EntityBase<int>
     {
-        public int CategoryID { get; set; }
+        [MaxLength(255)]
         public string CategoryName { get; set; }
 
         // Navigation property

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MyFirstApi.EFCore.Abstract;
 
 namespace MyFirstApi.EFCore.Entities
 {
-    public class OrderItem
+    public class OrderItem : EntityBase<int>
     {
-        public int ItemID { get; set; }
         public int OrderID { get; set; }     // Foreign key
         public int ProductID { get; set; }   // Foreign key
         public decimal ItemPrice { get; set; }

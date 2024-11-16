@@ -1,8 +1,9 @@
-﻿namespace MyFirstApi.EFCore.Entities
+﻿using MyFirstApi.EFCore.Abstract;
+
+namespace MyFirstApi.EFCore.Entities
 {
-    public class Product
+    public class Product : EntityBase<int>
     {
-        public int ProductID { get; set; }
         public int CategoryID { get; set; }  // Foreign key
         public string? ProductCode { get; set; }
         public string? ProductName { get; set; }
