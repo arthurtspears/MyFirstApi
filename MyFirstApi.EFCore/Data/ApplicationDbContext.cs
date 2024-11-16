@@ -19,31 +19,33 @@ namespace MyFirstApi.EFCore.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            #region Relationships
+            
             modelBuilder.Entity<Product>()
-                .HasKey(a => a.ProductID);
+                .HasKey(a => a.Id);
 
             modelBuilder.Entity<Product>()
                 .HasOne(p => p.Category)
                 .WithMany(c => c.Products)
-                .HasForeignKey(p => p.CategoryID);
+                .HasForeignKey(p => p.Id);
 
             // Configure Customer-Address relationship (One-to-Many)
             modelBuilder.Entity<Address>()
-                .HasKey(a => a.AddressID);
+                .HasKey(a => a.Id);
 
             modelBuilder.Entity<Address>()
                 .HasOne(a => a.Customer)
                 .WithMany(c => c.Addresses)
-                .HasForeignKey(a => a.CustomerID);
+                .HasForeignKey(a => a.Id);
 
             // Configure Customer's Shipping and Billing Addresses (One-to-One)
             modelBuilder.Entity<Customer>()
-                .HasKey(a => a.CustomerID);
+                .HasKey(a => a.Id);
 
             modelBuilder.Entity<Customer>()
                 .HasOne(c => c.ShippingAddress)
                 .WithMany()
-                .HasForeignKey(c => c.ShippingAddressID)
+                .HasForeignKey(c => c.Id)
                 .OnDelete(DeleteBehavior.Restrict); //
 
             modelBuilder.Entity<Customer>()
@@ -54,12 +56,12 @@ namespace MyFirstApi.EFCore.Data
 
             // Configure Order relationships
             modelBuilder.Entity<Order>()
-                .HasKey(a => a.OrderID);
+                .HasKey(a => a.Id);
 
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.Customer)
                 .WithMany(c => c.Orders)
-                .HasForeignKey(o => o.CustomerID);
+                .HasForeignKey(o => o.Id);
 
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.ShipAddress)
@@ -75,20 +77,24 @@ namespace MyFirstApi.EFCore.Data
 
             // Configure OrderItem relationships
             modelBuilder.Entity<OrderItem>()
-                .HasKey(a => a.OrderID);
+                .HasKey(a => a.Id);
 
             modelBuilder.Entity<OrderItem>()
                 .HasOne(oi => oi.Order)
                 .WithMany(o => o.OrderItems)
-                .HasForeignKey(oi => oi.OrderID);
+                .HasForeignKey(oi => oi.Id);
 
             modelBuilder.Entity<OrderItem>()
                 .HasOne(oi => oi.Product)
                 .WithMany(p => p.OrderItems)
-                .HasForeignKey(oi => oi.ProductID);
+                .HasForeignKey(oi => oi.Id);
 
             modelBuilder.Entity<Administrator>()
-                .HasKey(a=>a.AdminID);
+                .HasKey(a => a.Id);
+
+
+
+            #endregion
 
             base.OnModelCreating(modelBuilder);
         }

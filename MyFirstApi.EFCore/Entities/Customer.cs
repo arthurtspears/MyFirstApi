@@ -1,8 +1,9 @@
-﻿namespace MyFirstApi.EFCore.Entities
+﻿using MyFirstApi.EFCore.Abstract;
+
+namespace MyFirstApi.EFCore.Entities
 {
-    public class Customer
+    public class Customer : EntityBase<int>
     {
-        public int CustomerID { get; set; }
         public string EmailAddress { get; set; }
         public string Password { get; set; }  // Consider hashing passwords in a real app
         public string FirstName { get; set; }

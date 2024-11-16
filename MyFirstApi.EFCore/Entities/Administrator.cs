@@ -1,8 +1,9 @@
-﻿namespace MyFirstApi.EFCore.Entities
+﻿using MyFirstApi.EFCore.Abstract;
+
+namespace MyFirstApi.EFCore.Entities
 {
-    public class Administrator
+    public class Administrator : EntityBase<int>
     {
-        public int AdminID { get; set; }
         public string EmailAddress { get; set; }
         public string Password { get; set; }  // Consider hashing passwords
         public string FirstName { get; set; }
