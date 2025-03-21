@@ -3,15 +3,15 @@
 namespace MyFirstApi.EFCore.Entities
 {
     public class OrderItem : EntityBase<int>
-    {
-        public int OrderID { get; set; }     // Foreign key
-        public int ProductID { get; set; }   // Foreign key
-        public decimal ItemPrice { get; set; }
-        public decimal DiscountAmount { get; set; }
-        public int Quantity { get; set; }
+    { 
+        public int OrderID { get; init; }     // Foreign key
+        public int ProductID { get; init; }   // Foreign key
+        public decimal ItemPrice { get; init; }
+        public decimal DiscountAmount { get; init; }
+        public int Quantity { get; init; }
 
         // Navigation properties
-        public Order Order { get; set; }
-        public Product Product { get; set; }
+        public Order Order { get; init; }
+        public Product Product { get; init; }
     }
 }

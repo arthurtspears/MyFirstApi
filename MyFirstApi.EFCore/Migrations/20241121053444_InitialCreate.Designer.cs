@@ -12,7 +12,7 @@ using MyFirstApi.EFCore.Data;
 namespace MyFirstApi.EFCore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241107061020_InitialCreate")]
+    [Migration("20241121053444_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -27,141 +27,149 @@ namespace MyFirstApi.EFCore.Migrations
 
             modelBuilder.Entity("MyFirstApi.EFCore.Entities.Address", b =>
                 {
-                    b.Property<int>("AddressID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AddressID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CustomerID")
-                        .HasColumnType("int");
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
 
                     b.Property<bool>("Disabled")
                         .HasColumnType("bit");
 
                     b.Property<string>("Line1")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
 
                     b.Property<string>("Line2")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
 
                     b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
 
                     b.Property<string>("State")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(2)
+                        .HasColumnType("nvarchar(2)");
 
                     b.Property<string>("ZipCode")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
-                    b.HasKey("AddressID");
-
-                    b.HasIndex("CustomerID");
+                    b.HasKey("Id");
 
                     b.ToTable("Addresses");
                 });
 
             modelBuilder.Entity("MyFirstApi.EFCore.Entities.Administrator", b =>
                 {
-                    b.Property<int>("AdminID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AdminID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("EmailAddress")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
-                    b.HasKey("AdminID");
+                    b.HasKey("Id");
 
                     b.ToTable("Administrators");
                 });
 
             modelBuilder.Entity("MyFirstApi.EFCore.Entities.Category", b =>
                 {
-                    b.Property<int>("CategoryID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CategoryName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
-                    b.HasKey("CategoryID");
+                    b.HasKey("Id");
 
                     b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("MyFirstApi.EFCore.Entities.Customer", b =>
                 {
-                    b.Property<int>("CustomerID")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("Id")
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerID"));
 
                     b.Property<int?>("BillingAddressID")
                         .HasColumnType("int");
 
                     b.Property<string>("EmailAddress")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
 
                     b.Property<int?>("ShippingAddressID")
                         .HasColumnType("int");
 
-                    b.HasKey("CustomerID");
+                    b.HasKey("Id");
 
                     b.HasIndex("BillingAddressID");
-
-                    b.HasIndex("ShippingAddressID");
 
                     b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("MyFirstApi.EFCore.Entities.Order", b =>
                 {
-                    b.Property<int>("OrderID")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("Id")
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderID"));
 
                     b.Property<int>("BillingAddressID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CardExpires")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("CardExpires")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CardNumber")
                         .IsRequired()
@@ -169,7 +177,8 @@ namespace MyFirstApi.EFCore.Migrations
 
                     b.Property<string>("CardType")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("CustomerID")
                         .HasColumnType("int");
@@ -189,11 +198,9 @@ namespace MyFirstApi.EFCore.Migrations
                     b.Property<decimal>("TaxAmount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("OrderID");
+                    b.HasKey("Id");
 
                     b.HasIndex("BillingAddressID");
-
-                    b.HasIndex("CustomerID");
 
                     b.HasIndex("ShipAddressID");
 
@@ -202,17 +209,17 @@ namespace MyFirstApi.EFCore.Migrations
 
             modelBuilder.Entity("MyFirstApi.EFCore.Entities.OrderItem", b =>
                 {
-                    b.Property<int>("OrderID")
+                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.Property<decimal>("DiscountAmount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("ItemID")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("ItemPrice")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("OrderID")
+                        .HasColumnType("int");
 
                     b.Property<int>("ProductID")
                         .HasColumnType("int");
@@ -220,20 +227,15 @@ namespace MyFirstApi.EFCore.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("OrderID");
-
-                    b.HasIndex("ProductID");
+                    b.HasKey("Id");
 
                     b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("MyFirstApi.EFCore.Entities.Product", b =>
                 {
-                    b.Property<int>("ProductID")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("Id")
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductID"));
 
                     b.Property<int>("CategoryID")
                         .HasColumnType("int");
@@ -244,34 +246,23 @@ namespace MyFirstApi.EFCore.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("DiscountPercent")
-                        .HasColumnType("real");
+                    b.Property<decimal>("DiscountPercent")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("ListPrice")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("ProductCode")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("ProductName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
-                    b.HasKey("ProductID");
-
-                    b.HasIndex("CategoryID");
+                    b.HasKey("Id");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("MyFirstApi.EFCore.Entities.Address", b =>
-                {
-                    b.HasOne("MyFirstApi.EFCore.Entities.Customer", "Customer")
-                        .WithMany("Addresses")
-                        .HasForeignKey("CustomerID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("MyFirstApi.EFCore.Entities.Customer", b =>
@@ -283,8 +274,9 @@ namespace MyFirstApi.EFCore.Migrations
 
                     b.HasOne("MyFirstApi.EFCore.Entities.Address", "ShippingAddress")
                         .WithMany()
-                        .HasForeignKey("ShippingAddressID")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("BillingAddress");
 
@@ -301,7 +293,7 @@ namespace MyFirstApi.EFCore.Migrations
 
                     b.HasOne("MyFirstApi.EFCore.Entities.Customer", "Customer")
                         .WithMany("Orders")
-                        .HasForeignKey("CustomerID")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -322,13 +314,13 @@ namespace MyFirstApi.EFCore.Migrations
                 {
                     b.HasOne("MyFirstApi.EFCore.Entities.Order", "Order")
                         .WithMany("OrderItems")
-                        .HasForeignKey("OrderID")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("MyFirstApi.EFCore.Entities.Product", "Product")
                         .WithMany("OrderItems")
-                        .HasForeignKey("ProductID")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -341,7 +333,7 @@ namespace MyFirstApi.EFCore.Migrations
                 {
                     b.HasOne("MyFirstApi.EFCore.Entities.Category", "Category")
                         .WithMany("Products")
-                        .HasForeignKey("CategoryID")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -355,8 +347,6 @@ namespace MyFirstApi.EFCore.Migrations
 
             modelBuilder.Entity("MyFirstApi.EFCore.Entities.Customer", b =>
                 {
-                    b.Navigation("Addresses");
-
                     b.Navigation("Orders");
                 });
 

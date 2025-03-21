@@ -16,7 +16,7 @@ namespace MyFirstApi.EFCore.Factories
                 .Build();
 
             // Get connection string
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            var connectionString = configuration.GetConnectionString("SqlConnection");
 
             // Build options
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();

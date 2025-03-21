@@ -33,11 +33,6 @@ namespace MyFirstApi.EFCore.Data
             modelBuilder.Entity<Address>()
                 .HasKey(a => a.Id);
 
-            modelBuilder.Entity<Address>()
-                .HasOne(a => a.Customer)
-                .WithMany(c => c.Addresses)
-                .HasForeignKey(a => a.Id);
-
             // Configure Customer's Shipping and Billing Addresses (One-to-One)
             modelBuilder.Entity<Customer>()
                 .HasKey(a => a.Id);
