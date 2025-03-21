@@ -6,9 +6,9 @@ namespace MyFirstApi.EFCore.Entities
     public class Category : EntityBase<int>
     {
         [MaxLength(255)]
-        public string CategoryName { get; set; }
+        public string CategoryName { get; init; }
 
         // Navigation property
-        public ICollection<Product> Products { get; set; }
+        public ICollection<Product>? Products { get; init; }
     }
 }

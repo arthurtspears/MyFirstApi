@@ -1,19 +1,24 @@
 ﻿using MyFirstApi.EFCore.Abstract;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyFirstApi.EFCore.Entities
 {
     public class Product : EntityBase<int>
     {
-        public int CategoryID { get; set; }  // Foreign key
-        public string? ProductCode { get; set; }
-        public string? ProductName { get; set; }
-        public string? Description { get; set; }
-        public decimal ListPrice { get; set; }
-        public decimal DiscountPercent { get; set; }
-        public DateTime DateAdded { get; set; } = DateTime.UtcNow;
+        public int CategoryID { get; init; }  // Foreign key
+
+        [MaxLength(10)]
+        public string? ProductCode { get; init; }
+
+        [MaxLength(255)]
+        public string? ProductName { get; init; }
+        public string? Description { get; init; }
+        public decimal ListPrice { get; init; }
+        public decimal DiscountPercent { get; init; }
+        public DateTime DateAdded { get; init; } = DateTime.UtcNow;
 
         // Navigation properties
-        public Category Category { get; set; } = null!;
-        public ICollection<OrderItem>? OrderItems { get; set; }
+        public Category Category { get; init; } = null!;
+        public ICollection<OrderItem>? OrderItems { get; init; }
     }
 }

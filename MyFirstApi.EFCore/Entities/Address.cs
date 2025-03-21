@@ -5,29 +5,24 @@ namespace MyFirstApi.EFCore.Entities
 {
     public class Address : EntityBase<int>
     {
-        public int CustomerID { get; set; }  // Foreign key
+        [MaxLength(60)]
+        public string Line1 { get; init; }
 
         [MaxLength(60)]
-        public string Line1 { get; set; }
-
-        [MaxLength(60)]
-        public string? Line2 { get; set; } // Optional
+        public string? Line2 { get; init; } = null!; // Optional
 
         [MaxLength(40)]
-        public string City { get; set; }
+        public string City { get; init; }
 
         [MaxLength(2)]
-        public string State { get; set; }  // Consider creating an enum for states
+        public string State { get; init; }  // Consider creating an enum for states
 
         [MaxLength(10)]
-        public string ZipCode { get; set; }
+        public string ZipCode { get; init; }
 
         [MaxLength(12)]
-        public string Phone { get; set; }
+        public string Phone { get; init; }
 
-        public bool Disabled { get; set; }
-
-        // Navigation property
-        public Customer Customer { get; set; }
+        public bool Disabled { get; init; } = false;
     }
 }
